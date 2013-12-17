@@ -3,9 +3,6 @@ from xdress.typesystem import TypeSystem
 import os
 
 package = 'eigentest'     # top-level python package name
-
-includes = ['/usr/include/eigen3', '/usr/include/eigen2']
-
 extra_types = 'eigentest_extra_types'
 
 stlcontainers = [
