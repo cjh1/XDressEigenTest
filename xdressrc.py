@@ -4,6 +4,7 @@ import os
 
 package = 'eigentest'     # top-level python package name
 
+includes = ['/usr/include/eigen3', '/usr/include/eigen2']
 
 extra_types = 'eigentest_extra_types'
 
@@ -17,12 +18,6 @@ _fromsrcdir = lambda x: os.path.join('core', x)
 _incore = {'srcfiles': _fromsrcdir('eigentest.h'),
            'incfiles': 'eigentest.h',
            'language': 'c++', }
-
-_ineigen = {'srcfiles': 'Eigen/Core', # Do these have to be full paths ??
-           'incfiles': 'Eigen/Core',
-           'tarbase': 'eigen',
-           'language': 'c++',
-           }
 
 ts = TypeSystem.empty()
 
@@ -45,7 +40,6 @@ py2c=None
 ts.register_class('Matrix', template_args=('t', 'x', 'y'), cython_c2py=c2py, cython_py2c=py2c)
 
 classes = [
-     apiname(('Matrix', 'int', 2, 1), **_ineigen),
      apiname('EigenTest', **_incore)
     ]
 
