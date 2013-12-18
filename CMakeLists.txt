@@ -31,7 +31,7 @@ get_directory_property(_include_directories DIRECTORY
 list(APPEND _include_directories ${EIGEN3_INCLUDE_DIR} ${CMAKE_INSTALL_PREFIX}/include)
 
 add_custom_target(xdress ALL
-  COMMAND xdress --builddir ${CMAKE_CURRENT_BINARY_DIR} --packagedir ${CMAKE_CURRENT_BINARY_DIR}/eigentest   -I  ${_include_directories} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  COMMAND xdress --debug --builddir ${CMAKE_CURRENT_BINARY_DIR} --packagedir ${CMAKE_CURRENT_BINARY_DIR}/eigentest   -I  ${_include_directories} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   COMMENT "Running xdress ...")
 
 if( NOT NUMPY_INCLUDE_DIR )
