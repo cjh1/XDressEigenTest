@@ -3,7 +3,7 @@ from xdress.typesystem import TypeSystem
 import os
 
 ts = TypeSystem.empty()
-package = 'eigentest'     # top-level python package name
+package = 'etest'     # top-level python package name
 extra_types = 'eigentest_extra_types'
 
 stlcontainers = [
@@ -51,10 +51,10 @@ py2c=(
 
 # register_class(name=None, template_args=None, cython_c_type=None, cython_cimport=None, cython_cy_type=None, cython_py_type=None, cython_template_class_name=None, cython_template_function_name=None, cython_cyimport=None, cython_pyimport=None, cython_c2py=None, cython_py2c=None, cpp_type=None, human_name=None, from_pytype=None)[source]¶
 ts.register_class('Matrix', template_args=('t', 'x', 'y'),
-                  cython_c_type='class',  cython_cimport=('Eigen/Dense'),
-                  cython_cy_type='class', cython_py_type='numpy.array',
-                  cython_template_class_name=None, cython_template_function_name=None,
-                  cython_cyimport='matrix', cython_pyimport='numpy', cython_c2py=c2py,
+                  cython_c_type='eigen_matrix',  cython_cimport=('eigen.matrix', 'Matrix', 'eigen_matrix'),
+                  cython_cy_type='np.ndarray', cython_py_type='np.ndarray',
+                  cython_template_class_name='Matrix{t}', cython_template_function_name='matrix_{t}',
+                  cython_cyimport=(('numpy', 'as', 'np'), ('{dtypes}',)), cython_pyimport=('numpy', 'as', 'np'), cython_c2py=c2py,
                   cython_py2c=py2c, cpp_type='Eigen::Matrix')
 
 classes = [

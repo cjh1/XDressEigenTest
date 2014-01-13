@@ -1,7 +1,9 @@
 #include <Eigen/Dense>
 
+using namespace Eigen;
+
 class EigenTest
 {
 public:
-  Eigen::Matrix<int, 2, 1> test;
+  Matrix<int, 2, 1> test;
 };
