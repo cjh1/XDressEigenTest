@@ -56,7 +56,9 @@ include_directories( ${NUMPY_INCLUDE_DIR}  )
 set_source_files_properties( ${cxx_pyx_files}
     PROPERTIES CYTHON_IS_CXX TRUE )
 
-
-cython_add_module( stlcontainers ${CMAKE_BINARY_DIR}/etest/stlcontainers.pyx )
-cython_add_module( eigentest_extra_types ${CMAKE_BINARY_DIR}/etest/eigentest_extra_types.pyx )
-cython_add_module( eigentest ${CMAKE_BINARY_DIR}/etest/eigentest.pyx )
+# cython_add_module requires that file exists, so now just guard these
+if (EXISTS ${CMAKE_BINARY_DIR}/etest/stlcontainers.pyx)
+  cython_add_module( stlcontainers ${CMAKE_BINARY_DIR}/etest/stlcontainers.pyx )
+  cython_add_module( eigentest_extra_types ${CMAKE_BINARY_DIR}/etest/eigentest_extra_types.pyx )
+  cython_add_module( eigentest ${CMAKE_BINARY_DIR}/etest/eigentest.pyx )
+endif()
